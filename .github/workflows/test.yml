@@ -7,7 +7,7 @@ jobs:
     name: Run `dotnet --info`
     runs-on: windows-latest
     env:
-      DOTNET_INSTALL_DIR: "./dotnet"
+      DOTNET_INSTALL_DIR: "/test/dotnet"
     steps:
       - name: Install .NET 8.0.x to external directory
         uses: actions/setup-dotnet@v4
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet --info`
-        run: ./dotnet/dotnet --info
+        run: /test/dotnet --info
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -35,4 +35,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet workload search`
-        run: ./dotnet/dotnet workload search
+        run: /test/dotnet workload search

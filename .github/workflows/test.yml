@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet --info`
-        run: D:/test/dotnet --info
+        run: "& D:/test/dotnet --info"
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -35,4 +35,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet workload search`
-        run: D:/test/dotnet workload search
+        run: "& D:/test/dotnet workload search"

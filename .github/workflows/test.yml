@@ -6,39 +6,29 @@ jobs:
   dotnet-info:
     name: Run `dotnet --info`
     runs-on: windows-latest
-    env:
-      DOTNET_INSTALL_DIR: "${{ github.workspace }}\\dotnet"
     steps:
-      - name: Install .NET 8.0.x to external directory
+      - name: Install .NET 7.0.x for kicks
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: "7.0.x"
 
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: src
 
       - name: Run `dotnet --info`
         run: dotnet --info
-        working-directory: src
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
     runs-on: windows-latest
-    env:
-      DOTNET_INSTALL_DIR: "${{ github.workspace }}\\dotnet"
     steps:
-      - name: Install .NET 8.0.x to external directory
+      - name: Install .NET 7.0.x for kicks
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: "7.0.x"
 
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: src
 
       - name: Run `dotnet workload search`
         run: dotnet workload search
-        working-directory: src

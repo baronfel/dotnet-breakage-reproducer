@@ -17,12 +17,21 @@ jobs:
           dotnet-version: |
             6.0.x
             8.0.x
+        env:
+            DOTNET_INSTALL_DIR: ".dotnet"
+            DOTNET_ROOT: ".dotnet"
+            DOTNET_HOST_PATH: ".dotnet"
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Run `dotnet --info`
         run: dotnet --info
+        env:
+            DOTNET_INSTALL_DIR: ".dotnet"
+            DOTNET_ROOT: ".dotnet"
+            DOTNET_HOST_PATH: ".dotnet"
+            PATH: ".dotnet;$PATH"
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -36,9 +45,16 @@ jobs:
             8.0.x
         env:
             DOTNET_INSTALL_DIR: ".dotnet"
+            DOTNET_ROOT: ".dotnet"
+            DOTNET_HOST_PATH: ".dotnet"
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Run `dotnet workload search`
         run: dotnet workload search
+        env:
+            DOTNET_INSTALL_DIR: ".dotnet"
+            DOTNET_ROOT: ".dotnet"
+            DOTNET_HOST_PATH: ".dotnet"
+            PATH: ".dotnet;$PATH"

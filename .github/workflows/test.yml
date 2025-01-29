@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: wtf is even in there
-        run: ls "${{ github.workspace }}\\dotnet"
+        run: ls "${{ github.workspace }}\\dotnet\\"
 
       - name: Run `dotnet --info`
         env:

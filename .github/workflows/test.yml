@@ -19,12 +19,7 @@ jobs:
         with:
           path: src
 
-      - name: wtf is even in there
-        run: "ls ${{ github.workspace }}\\dotnet"
-
       - name: Run `dotnet --info`
-        env:
-          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet --info
         working-directory: src
 
@@ -45,7 +40,5 @@ jobs:
           path: src
 
       - name: Run `dotnet workload search`
-        env:
-          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet workload search
         working-directory: src

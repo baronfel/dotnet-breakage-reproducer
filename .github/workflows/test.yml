@@ -16,6 +16,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: src
 
       - name: wtf is even in there
         run: "ls ${{ github.workspace }}\\dotnet"
@@ -24,6 +26,7 @@ jobs:
         env:
           PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet --info
+        working-directory: src
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -38,8 +41,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: src
 
       - name: Run `dotnet workload search`
         env:
           PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet workload search
+        working-directory: src

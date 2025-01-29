@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet --info`
-        run: "& ${{ github.workspace }}\\dotnet.exe --info"
+        env:
+          PATH: "${{ env.PATH }}:${{ github.workspace }}\\dotnet"
+        run: dotnet --info
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -35,4 +37,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run `dotnet workload search`
-        run: "& ${{ github.workspace }}\\dotnet.exe workload search"
+        env:
+          PATH: "${{ env.PATH }}:${{ github.workspace }}\\dotnet"
+        run: dotnet workload search

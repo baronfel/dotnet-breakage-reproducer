@@ -19,7 +19,7 @@ jobs:
 
       - name: Run `dotnet --info`
         env:
-          PATH: "${{ env.PATH }}:${{ github.workspace }}\\dotnet"
+          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet --info
 
   dotnet-workload-search:
@@ -38,5 +38,5 @@ jobs:
 
       - name: Run `dotnet workload search`
         env:
-          PATH: "${{ env.PATH }}:${{ github.workspace }}\\dotnet"
+          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet workload search

@@ -7,7 +7,7 @@ jobs:
     name: Run `dotnet --info`
     runs-on: windows-latest
     env:
-      DOTNET_INSTALL_DIR: "${{ github.workspace }}\dotnet"
+      DOTNET_INSTALL_DIR: "${{ github.workspace }}\\dotnet"
     steps:
       - name: Install .NET 8.0.x to external directory
         uses: actions/setup-dotnet@v4
@@ -18,18 +18,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: wtf is even in there
-        run: ls "${{ github.workspace }}\dotnet"
+        run: "ls ${{ github.workspace }}\\dotnet"
 
       - name: Run `dotnet --info`
         env:
-          PATH: "${{ github.workspace }}\dotnet"
+          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet --info
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
     runs-on: windows-latest
     env:
-      DOTNET_INSTALL_DIR: "${{ github.workspace }}\dotnet"
+      DOTNET_INSTALL_DIR: "${{ github.workspace }}\\dotnet"
     steps:
       - name: Install .NET 8.0.x to external directory
         uses: actions/setup-dotnet@v4
@@ -41,5 +41,5 @@ jobs:
 
       - name: Run `dotnet workload search`
         env:
-          PATH: "${{ github.workspace }}\dotnet"
+          PATH: "${{ github.workspace }}\\dotnet"
         run: dotnet workload search

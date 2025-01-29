@@ -25,13 +25,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Add to PATH
+        run: Add-Content $env:GITHUB_PATH "$pwd\.dotnet"
+
       - name: Run `dotnet --info`
         run: dotnet --info
         env:
             DOTNET_INSTALL_DIR: ".dotnet"
             DOTNET_ROOT: ".dotnet"
             DOTNET_HOST_PATH: ".dotnet"
-            PATH: ".dotnet;$PATH"
 
   dotnet-workload-search:
     name: Run `dotnet workload search`
@@ -51,10 +53,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Add to PATH
+        run: Add-Content $env:GITHUB_PATH "$pwd\.dotnet"
+
       - name: Run `dotnet workload search`
         run: dotnet workload search
         env:
             DOTNET_INSTALL_DIR: ".dotnet"
             DOTNET_ROOT: ".dotnet"
             DOTNET_HOST_PATH: ".dotnet"
-            PATH: ".dotnet;$PATH"
